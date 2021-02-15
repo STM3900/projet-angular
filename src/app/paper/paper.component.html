@@ -1,1 +1,7 @@
 <p>Salut {{ nom }} !</p>
+<h2>Liste des trucs du papier</h2>
+<ul>
+  <li *ngFor="let i of papiers">
+    {{ i.id }}, {{ i.nom }}, {{ i.grammage }}, {{ i.couleur }}
+  </li>
+</ul>
