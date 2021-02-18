@@ -1,8 +1,6 @@
 <h2>Liste des trucs du papier</h2>
 <ul>
   <li *ngFor="let i of publicPaper">
-    <a [routerLink]="['/produit', i.id]"
-      >{{ i.id }}, {{ i.nom }}, {{ i.grammage }}, {{ i.couleur }}</a
-    >
+    <a [routerLink]="['/produit', i.id]">{{ i.id }}, {{ i.nom }}</a>
   </li>
 </ul>

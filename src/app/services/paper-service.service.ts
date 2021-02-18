@@ -1,34 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Paper } from '../Model/paper';
-
 @Injectable({
   providedIn: 'root',
 })
 export class PaperServiceService {
-  public papiers: Paper[] = [
-    {
-      id: 1,
-      nom: 'Canson feuille trop bien',
-      texture: 'oui',
-      grammage: '300g',
-      couleur: 'bleu',
-    },
-    {
-      id: 2,
-      nom: 'Non',
-      texture: 'oui',
-      grammage: '100g',
-      couleur: 'jsppp',
-    },
-    {
-      id: 3,
-      nom: 'Non',
-      texture: 'oui',
-      grammage: '8768452g',
-      couleur: 'aaaaaaaaaaaaaaa',
-    },
-  ];
+  //bip bip je suis l'appel API
+  private dataAPI = `{
+    "paper": [
+      {
+        "id": 1,
+        "nom": "Papier dessin",
+        "texture": "lisse",
+        "grammage": "100g",
+        "couleur": "noir"
+      },
+      {
+        "id": 2,
+        "nom": "Papier aquarelle",
+        "texture": "absorbante",
+        "grammage": "300g",
+        "couleur": "blanc"
+      },
+      {
+        "id": 3,
+        "nom": "Papier cailloux ciseaux",
+        "texture": "oui",
+        "grammage": "100g",
+        "couleur": "toutes"
+      }
+    ]
+  }
+  `;
 
+  public papiers: Paper[] = JSON.parse(this.dataAPI).paper;
   getPapers() {
     return this.papiers;
   }
@@ -41,5 +45,7 @@ export class PaperServiceService {
     return this.papiers[id];
   }
 
-  constructor() {}
+  constructor() {
+    console.log(this.papiers);
+  }
 }

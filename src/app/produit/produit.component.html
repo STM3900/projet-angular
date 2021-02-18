@@ -1,17 +1,33 @@
-<h1>Mon produit</h1>
-<ul>
-  <li>{{ publicPaper.id }}</li>
-  <li>{{ publicPaper.nom }}</li>
-  <li>{{ publicPaper.texture }}</li>
-  <li>{{ publicPaper.grammage }}</li>
-  <li>{{ publicPaper.couleur }}</li>
-</ul>
-<button *ngIf="!idEdit" (click)="idEdit = !idEdit">Modifier</button>
-<div *ngIf="idEdit">
-  <h2>Modification du papier</h2>
-  <input type="text" placeholder="Nom" />
-  <input type="text" placeholder="Texture" />
-  <input type="text" placeholder="Grammage" />
-  <input type="text" placeholder="Couleur" /> <br />
-  <button (click)="idEdit = !idEdit">Annuler</button>
+<div *ngIf="id == 0">
+  <h1>Ajouter un produit</h1>
+  <input type="text" placeholder="Nom" [(ngModel)]="formNom" />
+  <input type="text" placeholder="Texture" [(ngModel)]="formTexture" />
+  <input type="text" placeholder="Grammage" [(ngModel)]="formGrammage" />
+  <input type="text" placeholder="Couleur" [(ngModel)]="formCouleur" />
+  <button (click)="addProduct()">Ajouter !</button>
 </div>
+
+<div *ngIf="id > 0">
+  <div>
+    <h1>Mon produit</h1>
+    <ul>
+      <li>{{ publicPaper.id }}</li>
+      <li>{{ publicPaper.nom }}</li>
+      <li>{{ publicPaper.texture }}</li>
+      <li>{{ publicPaper.grammage }}</li>
+      <li>{{ publicPaper.couleur }}</li>
+    </ul>
+  </div>
+  <button *ngIf="!idEdit" (click)="idEdit = !idEdit">Modifier</button>
+  <div *ngIf="idEdit">
+    <h2>Modification du papier</h2>
+    <input type="text" placeholder="Nom" [(ngModel)]="formNom" />
+    <input type="text" placeholder="Texture" [(ngModel)]="formTexture" />
+    <input type="text" placeholder="Grammage" [(ngModel)]="formGrammage" />
+    <input type="text" placeholder="Couleur" [(ngModel)]="formCouleur" /> <br />
+    <button (click)="editProduct()">Valider</button>
+    <button (click)="idEdit = !idEdit">Annuler</button>
+  </div>
+</div>
+<br /><br />
+<a routerLink="/">Retour au début</a>
