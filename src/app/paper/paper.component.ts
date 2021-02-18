@@ -44,7 +44,6 @@ export class PaperComponent implements OnInit {
       this._papiers.addPaper(this.selectedPaper);
       this.selectedPaper = null;
     } else {
-      //TODO tg
     }
   }
 }

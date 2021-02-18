@@ -6,3 +6,12 @@
   <li>{{ publicPaper.grammage }}</li>
   <li>{{ publicPaper.couleur }}</li>
 </ul>
+<button *ngIf="!idEdit" (click)="idEdit = !idEdit">Modifier</button>
+<div *ngIf="idEdit">
+  <h2>Modification du papier</h2>
+  <input type="text" placeholder="Nom" />
+  <input type="text" placeholder="Texture" />
+  <input type="text" placeholder="Grammage" />
+  <input type="text" placeholder="Couleur" /> <br />
+  <button (click)="idEdit = !idEdit">Annuler</button>
+</div>

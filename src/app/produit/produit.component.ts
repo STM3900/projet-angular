@@ -10,6 +10,7 @@ import { PaperServiceService } from '../services/paper-service.service';
 export class ProduitComponent implements OnInit {
   public publicPaper;
   public id;
+  public idEdit: false;
 
   constructor(
     private _papiers: PaperServiceService,

@@ -9,7 +9,12 @@ import { PaperListComponent } from './paper-list/paper-list.component';
 import { ProduitComponent } from './produit/produit.component';
 
 @NgModule({
-  declarations: [AppComponent, PaperComponent, PaperListComponent, ProduitComponent],
+  declarations: [
+    AppComponent,
+    PaperComponent,
+    PaperListComponent,
+    ProduitComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
