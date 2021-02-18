@@ -2,6 +2,39 @@
 <h2>Liste des trucs du papier</h2>
 <ul>
   <li *ngFor="let i of papiers">
-    {{ i.id }}, {{ i.nom }}, {{ i.grammage }}, {{ i.couleur }}
+    <button (click)="onSelect(i)">
+      {{ i.id }}, {{ i.nom }}, {{ i.grammage }}, {{ i.couleur }}
+    </button>
   </li>
 </ul>
+<button *ngIf="!selectedPaper" (click)="addPaper()">ajouter</button>
+
+<div>
+  <h2>détail d'un produit</h2>
+  <input
+    type="text"
+    placeholder="Nom"
+    [(ngModel)]="selectedPaper.nom"
+    *ngIf="selectedPaper"
+  />
+  <input
+    type="text"
+    placeholder="Texture"
+    [(ngModel)]="selectedPaper.texture"
+    *ngIf="selectedPaper"
+  />
+  <input
+    type="text"
+    placeholder="Grammage"
+    [(ngModel)]="selectedPaper.grammage"
+    *ngIf="selectedPaper"
+  />
+  <input
+    type="text"
+    placeholder="Couleur"
+    [(ngModel)]="selectedPaper.couleur"
+    *ngIf="selectedPaper"
+  />
+  <button (click)="onDeselect()">annuler</button>
+  <button (click)="onValidate()">valider</button>
+</div>
