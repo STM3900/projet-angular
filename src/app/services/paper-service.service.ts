@@ -37,5 +37,9 @@ export class PaperServiceService {
     this.papiers.push(paper);
   }
 
+  getSinglePaper(id: number) {
+    return this.papiers[id];
+  }
+
   constructor() {}
 }
