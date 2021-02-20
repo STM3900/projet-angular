@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    margin-right: 20%;
+    margin-left: 20%;
+    border: solid red 2px;
+}
