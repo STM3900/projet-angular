@@ -7,26 +7,30 @@
   <button (click)="addProduct()">Ajouter !</button>
 </div>
 
-<div *ngIf="id > 0">
+<div *ngIf="id > 0" class="product-list">
   <div>
     <h1>Mon produit</h1>
     <ul>
-      <li>{{ publicPaper.id }}</li>
-      <li>{{ publicPaper.nom }}</li>
-      <li>{{ publicPaper.texture }}</li>
-      <li>{{ publicPaper.grammage }}</li>
-      <li>{{ publicPaper.couleur }}</li>
+      <li><span>Id</span> : {{ publicPaper.id }}</li>
+      <li><span>Nom</span> : {{ publicPaper.nom }}</li>
+      <li><span>Texture</span> : {{ publicPaper.texture }}</li>
+      <li><span>Grammage</span> : {{ publicPaper.grammage }}</li>
+      <li><span>Couleur</span> : {{ publicPaper.couleur }}</li>
     </ul>
   </div>
-  <button *ngIf="!idEdit" (click)="idEdit = !idEdit">Modifier</button>
+  <button *ngIf="!idEdit" (click)="idEdit = !idEdit" class="button">
+    Modifier
+  </button>
   <div *ngIf="idEdit">
     <h2>Modification du papier</h2>
-    <input type="text" placeholder="Nom" [(ngModel)]="formNom" />
-    <input type="text" placeholder="Texture" [(ngModel)]="formTexture" />
-    <input type="text" placeholder="Grammage" [(ngModel)]="formGrammage" />
-    <input type="text" placeholder="Couleur" [(ngModel)]="formCouleur" /> <br />
-    <button (click)="editProduct()">Valider</button>
-    <button (click)="idEdit = !idEdit">Annuler</button>
+    <div class="input-group">
+      <input type="text" placeholder="Nom" [(ngModel)]="formNom" />
+      <input type="text" placeholder="Texture" [(ngModel)]="formTexture" />
+      <input type="text" placeholder="Grammage" [(ngModel)]="formGrammage" />
+      <input type="text" placeholder="Couleur" [(ngModel)]="formCouleur" />
+    </div>
+    <button (click)="editProduct()" class="button">Valider</button>
+    <button (click)="idEdit = !idEdit" class="button red">Annuler</button>
   </div>
 </div>
 <br /><br />

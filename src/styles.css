@@ -1,14 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+body {
+  margin-right: 20%;
+  margin-left: 20%;
 
-    margin-right: 20%;
-    margin-left: 20%;
-    border: solid red 2px;
+  font-family: "Open Sans", sans-serif;
+}
+
+*:focus {
+  outline: 0;
+}
+
+.button {
+  background-color: #424242; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  padding: 10px 24px;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #424242e8; /* Green */
 }
