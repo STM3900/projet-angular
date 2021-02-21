@@ -29,6 +29,17 @@ body {
   background-color: #424242e8;
 }
 
+.outlined {
+  border: solid 1px #424242e8;
+  color: #424242e8;
+  background: none;
+}
+
+.outlined:hover {
+  background: #424242e8;
+  color: white;
+}
+
 .red {
   background: none;
   border: solid 1px #f44336;
