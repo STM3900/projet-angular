@@ -19,6 +19,11 @@ export class ProduitComponent implements OnInit {
   public formGrammage = '';
   public formCouleur = '';
 
+  public tempNom = '';
+  public tempTexture = '';
+  public tempGrammage = '';
+  public tempCouleur = '';
+
   constructor(
     private _papiers: PaperServiceService,
     public _router: Router,
@@ -32,17 +37,23 @@ export class ProduitComponent implements OnInit {
     });
   }
 
+  clickOnEdit() {
+    this.tempNom = this.publicPaper.nom;
+    this.tempTexture = this.publicPaper.texture;
+    this.tempGrammage = this.publicPaper.grammage;
+    this.tempCouleur = this.publicPaper.couleur;
+
+    this.idEdit = !this.idEdit;
+  }
+
   editProduct() {
     if (
-      this.formNom &&
-      this.formTexture &&
-      this.formGrammage &&
-      this.formCouleur
+      this.publicPaper.nom &&
+      this.publicPaper.texture &&
+      this.publicPaper.grammage &&
+      this.publicPaper.couleur
     ) {
-      this.publicPaper.nom = this.formNom;
-      this.publicPaper.texture = this.formTexture;
-      this.publicPaper.grammage = this.formGrammage;
-      this.publicPaper.couleur = this.formCouleur;
+      this.idEdit = false;
     } else {
       this.verifForm = false;
       setTimeout(() => {
@@ -82,5 +93,10 @@ export class ProduitComponent implements OnInit {
     this.formTexture = '';
     this.formGrammage = '';
     this.formCouleur = '';
+
+    this.publicPaper.nom = this.tempNom;
+    this.publicPaper.texture = this.tempTexture;
+    this.publicPaper.grammage = this.tempGrammage;
+    this.publicPaper.couleur = this.tempCouleur;
   }
 }

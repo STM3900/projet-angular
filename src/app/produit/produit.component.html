@@ -25,16 +25,33 @@
       <li><span>Couleur</span> : {{ publicPaper.couleur }}</li>
     </ul>
   </div>
-  <button *ngIf="!idEdit" (click)="idEdit = !idEdit" class="button">
-    Modifier
-  </button>
+  <div>
+    <button *ngIf="!idEdit" (click)="clickOnEdit()" class="button">
+      Modifier
+    </button>
+    <button *ngIf="!idEdit" routerLink="/produit/0" class="button">
+      Créer
+    </button>
+  </div>
   <div *ngIf="idEdit">
     <h2>Modification du papier</h2>
     <div class="input-group" [ngClass]="{ 'invalid-form': !verifForm }">
-      <input type="text" placeholder="Nom" [(ngModel)]="formNom" />
-      <input type="text" placeholder="Texture" [(ngModel)]="formTexture" />
-      <input type="text" placeholder="Grammage" [(ngModel)]="formGrammage" />
-      <input type="text" placeholder="Couleur" [(ngModel)]="formCouleur" />
+      <input type="text" placeholder="Nom" [(ngModel)]="publicPaper.nom" />
+      <input
+        type="text"
+        placeholder="Texture"
+        [(ngModel)]="publicPaper.texture"
+      />
+      <input
+        type="text"
+        placeholder="Grammage"
+        [(ngModel)]="publicPaper.grammage"
+      />
+      <input
+        type="text"
+        placeholder="Couleur"
+        [(ngModel)]="publicPaper.couleur"
+      />
     </div>
     <button (click)="editProduct()" class="button">Valider</button>
     <button (click)="onDeselect()" class="button red">Annuler</button>
