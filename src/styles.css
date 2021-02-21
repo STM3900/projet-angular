@@ -11,8 +11,8 @@ body {
 }
 
 .button {
-  background-color: #424242; /* Green */
-  border: none;
+  background-color: #424242;
+  border: 1px solid #424242;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -26,5 +26,46 @@ body {
 }
 
 .button:hover {
-  background-color: #424242e8; /* Green */
+  background-color: #424242e8;
+}
+
+.red {
+  background: none;
+  border: solid 1px #f44336;
+  color: #f44336;
+}
+
+.red:hover {
+  background: #f0574c;
+  color: white;
+}
+
+.invalid-form {
+  animation: tremblementerror 0.3s 0s 1;
+}
+
+@keyframes tremblementerror {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(10px);
+  }
+
+  40% {
+    transform: translate(-10px);
+  }
+
+  60% {
+    transform: translate(10px);
+  }
+
+  80% {
+    transform: translate(-10px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
 }

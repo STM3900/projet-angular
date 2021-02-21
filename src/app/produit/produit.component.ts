@@ -11,7 +11,8 @@ import { PaperServiceService } from '../services/paper-service.service';
 export class ProduitComponent implements OnInit {
   public publicPaper;
   public id;
-  public idEdit: false;
+  public idEdit = false;
+  public verifForm = true;
 
   public formNom = '';
   public formTexture = '';
@@ -20,7 +21,7 @@ export class ProduitComponent implements OnInit {
 
   constructor(
     private _papiers: PaperServiceService,
-    private _router: Router,
+    public _router: Router,
     private _r: ActivatedRoute
   ) {}
 
@@ -32,21 +33,45 @@ export class ProduitComponent implements OnInit {
   }
 
   editProduct() {
-    this.publicPaper.nom = this.formNom;
-    this.publicPaper.texture = this.formTexture;
-    this.publicPaper.grammage = this.formGrammage;
-    this.publicPaper.couleur = this.formCouleur;
+    if (
+      this.formNom &&
+      this.formTexture &&
+      this.formGrammage &&
+      this.formCouleur
+    ) {
+      this.publicPaper.nom = this.formNom;
+      this.publicPaper.texture = this.formTexture;
+      this.publicPaper.grammage = this.formGrammage;
+      this.publicPaper.couleur = this.formCouleur;
+    } else {
+      this.verifForm = false;
+      setTimeout(() => {
+        this.verifForm = true;
+      }, 300);
+    }
   }
 
   addProduct() {
-    let newPaper = new Paper();
-    newPaper.id = this._papiers.getPapers().length + 1;
-    newPaper.nom = this.formNom;
-    newPaper.texture = this.formTexture;
-    newPaper.grammage = this.formGrammage;
-    newPaper.couleur = this.formCouleur;
+    if (
+      this.formNom &&
+      this.formTexture &&
+      this.formGrammage &&
+      this.formCouleur
+    ) {
+      let newPaper = new Paper();
+      newPaper.id = this._papiers.getPapers().length + 1;
+      newPaper.nom = this.formNom;
+      newPaper.texture = this.formTexture;
+      newPaper.grammage = this.formGrammage;
+      newPaper.couleur = this.formCouleur;
 
-    this._papiers.addPaper(newPaper);
-    this._router.navigateByUrl('');
+      this._papiers.addPaper(newPaper);
+      this._router.navigateByUrl('');
+    } else {
+      this.verifForm = false;
+      setTimeout(() => {
+        this.verifForm = true;
+      }, 300);
+    }
   }
 }

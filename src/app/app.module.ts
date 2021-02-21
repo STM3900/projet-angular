@@ -7,6 +7,7 @@ import { PaperComponent } from './paper/paper.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaperListComponent } from './paper-list/paper-list.component';
 import { ProduitComponent } from './produit/produit.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ProduitComponent } from './produit/produit.component';
     PaperComponent,
     PaperListComponent,
     ProduitComponent,
+    NavbarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

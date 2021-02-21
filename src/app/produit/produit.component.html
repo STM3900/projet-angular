@@ -1,15 +1,22 @@
-<div *ngIf="id == 0">
-  <h1>Ajouter un produit</h1>
-  <input type="text" placeholder="Nom" [(ngModel)]="formNom" />
-  <input type="text" placeholder="Texture" [(ngModel)]="formTexture" />
-  <input type="text" placeholder="Grammage" [(ngModel)]="formGrammage" />
-  <input type="text" placeholder="Couleur" [(ngModel)]="formCouleur" />
-  <button (click)="addProduct()">Ajouter !</button>
+<div *ngIf="id == 0" class="product-list">
+  <h1 style="margin-bottom: 25px">Ajouter un produit</h1>
+  <div class="input-group" [ngClass]="{ 'invalid-form': !verifForm }">
+    <input type="text" placeholder="Nom" [(ngModel)]="formNom" />
+    <input type="text" placeholder="Texture" [(ngModel)]="formTexture" />
+    <input type="text" placeholder="Grammage" [(ngModel)]="formGrammage" />
+    <input type="text" placeholder="Couleur" [(ngModel)]="formCouleur" />
+  </div>
+  <div>
+    <button (click)="addProduct()" class="button">Ajouter !</button>
+    <button (click)="_router.navigateByUrl('')" class="button red">
+      Annuler
+    </button>
+  </div>
 </div>
 
 <div *ngIf="id > 0" class="product-list">
   <div>
-    <h1>Mon produit</h1>
+    <h1>{{ publicPaper.nom }}</h1>
     <ul>
       <li><span>Id</span> : {{ publicPaper.id }}</li>
       <li><span>Nom</span> : {{ publicPaper.nom }}</li>
@@ -23,7 +30,7 @@
   </button>
   <div *ngIf="idEdit">
     <h2>Modification du papier</h2>
-    <div class="input-group">
+    <div class="input-group" [ngClass]="{ 'invalid-form': !verifForm }">
       <input type="text" placeholder="Nom" [(ngModel)]="formNom" />
       <input type="text" placeholder="Texture" [(ngModel)]="formTexture" />
       <input type="text" placeholder="Grammage" [(ngModel)]="formGrammage" />
@@ -33,5 +40,5 @@
     <button (click)="idEdit = !idEdit" class="button red">Annuler</button>
   </div>
 </div>
-<br /><br />
-<a routerLink="/">Retour au début</a>
+<br />
+<a routerLink="/" *ngIf="id != 0" class="back-to-menu">Retour au menu</a>

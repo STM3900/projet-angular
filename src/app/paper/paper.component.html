@@ -1,40 +1,46 @@
-<p>Salut {{ nom }} !</p>
-<h2>Liste des trucs du papier</h2>
-<ul>
-  <li *ngFor="let i of publicPaper">
-    <button (click)="onSelect(i)">
+<div class="paperv1-list">
+  <h5>(Correspond à la partie 1 du DM)</h5>
+  <h1>Liste des produits v1</h1>
+  <ul>
+    <li *ngFor="let i of publicPaper" (click)="onSelect(i)">
       {{ i.nom }}
-    </button>
-  </li>
-</ul>
-<button *ngIf="!selectedPaper" (click)="addPaper()">ajouter</button>
+    </li>
+  </ul>
+  <button *ngIf="!selectedPaper" class="button" (click)="addPaper()">
+    Ajouter
+  </button>
+</div>
 
-<div>
-  <h2>détail d'un produit</h2>
-  <input
-    type="text"
-    placeholder="Nom"
-    [(ngModel)]="selectedPaper.nom"
-    *ngIf="selectedPaper"
-  />
-  <input
-    type="text"
-    placeholder="Texture"
-    [(ngModel)]="selectedPaper.texture"
-    *ngIf="selectedPaper"
-  />
-  <input
-    type="text"
-    placeholder="Grammage"
-    [(ngModel)]="selectedPaper.grammage"
-    *ngIf="selectedPaper"
-  />
-  <input
-    type="text"
-    placeholder="Couleur"
-    [(ngModel)]="selectedPaper.couleur"
-    *ngIf="selectedPaper"
-  />
-  <button (click)="onDeselect()">annuler</button>
-  <button (click)="onValidate()">valider</button>
+<div class="paperv1-list" *ngIf="selectedPaper">
+  <h1>{{ sectionTitle }}</h1>
+  <div class="input-group" [ngClass]="{ 'invalid-form': !verifForm }">
+    <input
+      type="text"
+      placeholder="Nom"
+      [(ngModel)]="selectedPaper.nom"
+      *ngIf="selectedPaper"
+    />
+    <input
+      type="text"
+      placeholder="Texture"
+      [(ngModel)]="selectedPaper.texture"
+      *ngIf="selectedPaper"
+    />
+    <input
+      type="text"
+      placeholder="Grammage"
+      [(ngModel)]="selectedPaper.grammage"
+      *ngIf="selectedPaper"
+    />
+    <input
+      type="text"
+      placeholder="Couleur"
+      [(ngModel)]="selectedPaper.couleur"
+      *ngIf="selectedPaper"
+    />
+  </div>
+  <div>
+    <button (click)="onValidate()" class="button">Valider</button>
+    <button (click)="onDeselect()" class="button red">Annuler</button>
+  </div>
 </div>

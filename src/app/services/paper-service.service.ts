@@ -45,7 +45,5 @@ export class PaperServiceService {
     return this.papiers[id];
   }
 
-  constructor() {
-    console.log(this.papiers);
-  }
+  constructor() {}
 }
