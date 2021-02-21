@@ -17,6 +17,7 @@ export class PaperComponent implements OnInit {
   public tooAdd = false;
   public sectionTitle = "Détail d'un produit";
   public verifForm = true;
+  public activateStyle = false;
 
   ngOnInit(): void {}
 
@@ -27,11 +28,26 @@ export class PaperComponent implements OnInit {
     if (!this.selectedPaper) {
       this.selectedPaper = papier;
       this.tooAdd = false;
+
+      const allLi = document.querySelectorAll('li');
+
+      for (let i = 0; i < this.publicPaper.length; i++) {
+        if (this.publicPaper[i].id != papier.id) {
+          allLi[i].style.color = 'rgb(150, 150, 150)';
+        } else {
+          allLi[i].style.color = 'rgb(60, 60, 60)';
+        }
+      }
     }
   }
 
   onDeselect() {
     this.selectedPaper = null;
+
+    const allLi = document.querySelectorAll('li');
+    for (let i = 0; i < this.publicPaper.length; i++) {
+      allLi[i].style.color = 'rgb(60, 60, 60)';
+    }
   }
 
   addPaper() {

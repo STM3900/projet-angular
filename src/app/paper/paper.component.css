@@ -35,18 +35,22 @@
   border: none;
 }
 
-.paperv1-list li:hover {
+.paperv1-list-hover li:hover {
   cursor: pointer;
   color: black;
   padding-left: 1px;
 }
 
-.paperv1-list li:active {
+.paperv1-list-hover li:active {
   transform: scale(0.99) rotate(-1deg);
 }
 
 .paperv1-list button {
   margin-top: 10px;
+}
+
+.paperv1-list-disabled {
+  color: rgb(120, 120, 120);
 }
 
 .input-group {
