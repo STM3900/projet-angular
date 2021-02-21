@@ -7,23 +7,3 @@ body {
   align-items: center;
   align-content: center;
 }
-
-nav {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-nav a {
-  margin-right: 10px;
-  margin-left: 10px;
-  color: rgb(60, 60, 60);
-  transition: 0.3s;
-}
-
-nav a:hover {
-  transform: rotate(1deg);
-}
