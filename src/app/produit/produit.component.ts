@@ -74,4 +74,13 @@ export class ProduitComponent implements OnInit {
       }, 300);
     }
   }
+
+  onDeselect() {
+    this.idEdit = !this.idEdit;
+
+    this.formNom = '';
+    this.formTexture = '';
+    this.formGrammage = '';
+    this.formCouleur = '';
+  }
 }
