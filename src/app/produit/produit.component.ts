@@ -19,6 +19,7 @@ export class ProduitComponent implements OnInit {
   public formGrammage = '';
   public formCouleur = '';
 
+  // Variables tempon
   public tempNom = '';
   public tempTexture = '';
   public tempGrammage = '';
@@ -31,12 +32,15 @@ export class ProduitComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //On récupère l'id de l'url pour ensuite get le bon papier
     this._r.paramMap.subscribe((v) => {
       this.id = Number(v.get('id'));
       this.publicPaper = this._papiers.getSinglePaper(this.id - 1);
     });
   }
 
+  // Fonction qui se lance quand on clique sur le bouton "Modifier",
+  // Ajoute les valeurs initiales de la liste dans les variables tempon
   clickOnEdit() {
     this.tempNom = this.publicPaper.nom;
     this.tempTexture = this.publicPaper.texture;
@@ -46,6 +50,7 @@ export class ProduitComponent implements OnInit {
     this.idEdit = !this.idEdit;
   }
 
+  // Fait la vérification du form et valide l'édition de papier
   editProduct() {
     if (
       this.publicPaper.nom &&
@@ -62,6 +67,7 @@ export class ProduitComponent implements OnInit {
     }
   }
 
+  // Ajoute le papier, après vérification
   addProduct() {
     if (
       this.formNom &&
@@ -86,6 +92,7 @@ export class ProduitComponent implements OnInit {
     }
   }
 
+  // Remet les variables et les valeurs du papier, à l'état initial
   onDeselect() {
     this.idEdit = !this.idEdit;
 

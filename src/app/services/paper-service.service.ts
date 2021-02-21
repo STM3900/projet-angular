@@ -4,7 +4,7 @@ import { Paper } from '../Model/paper';
   providedIn: 'root',
 })
 export class PaperServiceService {
-  //bip bip je suis l'appel API
+  // bip bip je suis l'appel API bip bip 📡
   private dataAPI = `{
     "paper": [
       {
