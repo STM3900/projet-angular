@@ -91,6 +91,13 @@ export class PaperComponent implements OnInit {
       if (this.tooAdd) {
         this._papiers.addPaper(this.selectedPaper);
         this.selectedPaper = null;
+      } else {
+        this.selectedPaper = null;
+
+        const allLi = document.querySelectorAll('li');
+        for (let i = 0; i < this.publicPaper.length; i++) {
+          allLi[i].style.color = 'rgb(60, 60, 60)';
+        }
       }
     } else {
       this.verifForm = false;
