@@ -19,15 +19,25 @@ export class PaperComponent implements OnInit {
   public verifForm = true;
   public activateStyle = false;
 
+  public tempNom = '';
+  public tempTexture = '';
+  public tempGrammage = '';
+  public tempCouleur = '';
+
   ngOnInit(): void {}
 
   public selectedPaper;
 
   onSelect(papier: Paper) {
-    this.sectionTitle = "Détail d'un produit";
     if (!this.selectedPaper) {
+      this.sectionTitle = "Détail d'un produit";
       this.selectedPaper = papier;
       this.tooAdd = false;
+
+      this.tempNom = papier.nom;
+      this.tempTexture = papier.texture;
+      this.tempGrammage = papier.grammage;
+      this.tempCouleur = papier.couleur;
 
       const allLi = document.querySelectorAll('li');
 
@@ -42,6 +52,11 @@ export class PaperComponent implements OnInit {
   }
 
   onDeselect() {
+    this.selectedPaper.nom = this.tempNom;
+    this.selectedPaper.texture = this.tempTexture;
+    this.selectedPaper.grammage = this.tempGrammage;
+    this.selectedPaper.couleur = this.tempCouleur;
+
     this.selectedPaper = null;
 
     const allLi = document.querySelectorAll('li');
